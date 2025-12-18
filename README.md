@@ -20,4 +20,4 @@ node app.js
 ---
 
 *Part of The Odin Project's [NodeJS Course]
-([https://www.theodinproject.com/lessons/node-path-nodejs-mini-message-board])*
+([https://www.theodinproject.com/lessons/node-path-nodejs-inventory-application])*
