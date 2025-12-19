@@ -3,7 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { indexRouter } from './src/routes/index.js';
 import { allGamesRouter } from './src/routes/allGames.js';
-import { newGameRouter } from './src/routes/newGame.js'
+import { newGameRouter } from './src/routes/newGame.js';
+import { renderErrorPage } from './src/controllers/error.js';
 
 
 
@@ -28,7 +29,7 @@ app.use("/newGame", newGameRouter)
 const PORT = 8080;
 app.listen(PORT, (error) => {
   if (error) {
-    throw error;
+    renderErrorPage()
   }
   console.log(`Game Inventory Application - listening on port ${PORT}!`);
 });
