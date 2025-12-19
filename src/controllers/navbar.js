@@ -15,3 +15,7 @@ export function renderAllGamesNavbar(request, response) {
 export function renderNewGameNavbar(request, response) {
     response.render("newGame", {navbarElements: navbarElements});
 }
+
+export function renderErrorNavbar(request, response){
+    response.render("error", {navbarElements: navbarElements});
+}
