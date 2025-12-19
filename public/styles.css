@@ -12,58 +12,109 @@
 
 }
 
+span{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
 /* CSS Styling for navbar*/
+
 
 nav{
     display: flex;
     justify-content: center;
 }
 
-ul[class="navbarList"]{
+ul{
     list-style-type: none;
     display: flex;
+    flex-basis: 100%;
     justify-content: space-evenly;
-    flex-basis: 250%;
-    max-width: 1200px;
-}
-
-li[class="navbarList"]{
-    display: flex;
-    align-items: center;
+    max-width: 850px;
 }
 
 a[class="navbarList"]{
-    text-decoration: none;
-    background-color: var(--navbarColor);
-    border: 2px solid hsl(0, 6%, 91%);
-    border-radius: 20px;
-    padding: 12px;
-    transition: 0.2s transform;
-}
-
-a[class="navbarList"]:hover{
-    background-color: hsl(56, 97%, 58%);
-    box-shadow: 2px 2px 15px 1px hsl(0, 31%, 93%);
-    transform: scale(1.15);
-    border: 2px solid var(--blackColor)
-}
-
-a[class="navbarList"]:hover span{
-    color: var(--HomeColor);
-}
-
-span[class="navbarText"]{
     font-family: Roboto;
-    font-weight: 700;
-    font-size: 1.4rem;
-    align-items: center;
-    color: var(--whiteColor);
+    color: #949191;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
 }
+
+a[class="navbarList"]:hover {
+  color: #2a85e6;
+}
+
+a[class="navbarList"]::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #2a85e6;
+  transition: width 0.3s ease;
+}
+
+a[class="navbarList"]:hover::after {
+  width: 100%;
+}
+
 
 
 
 /* CSS Styling for Homepage */
 
 body[class="homepage"]{
-    background-color: var(--HomeColor);
+    background-color: var(--whiteColor);
+}
+
+div[class="indexContainer"]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.2rem;
+}
+
+img{
+    height: 425px;
+    width: 515px;
+    border-radius: 20px;
+    margin: 0 3rem;
+}
+
+p[class="homepageText"]{
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: hsl(0, 0%, 51%);
+    max-width: 600px;
+}
+
+ul[class="homeButtonList"]{
+    margin-top: 2rem;
+}
+
+a[class="homeButton"]{
+    background-color: hsl(210, 86%, 66%);
+    color: hsl(0, 0%, 100%);
+    font-size: 17px;
+    padding: 10px;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+a[class="homeButton"]:hover{
+    background-color: hsl(210, 64%, 50%);
+    transform: scale(1.1);
+}
+
+span[class="homeButton"]{
+    font-family: Roboto;
 }
