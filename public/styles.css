@@ -20,6 +20,10 @@ a{
     text-decoration: none;
 }
 
+*{
+    font-family: Roboto;
+}
+
 /* CSS Styling for navbar*/
 
 
@@ -145,4 +149,100 @@ a[class="homeButton"]:hover{
 
 span[class="homeButton"]{
     font-family: Roboto;
+}
+
+
+
+/* CSS Styling for New Game Form Page */
+
+div[class="formContainer"]{
+    max-width: 400px;
+    margin: auto;
+    border-radius: 30px;
+    background-color: hsl(0, 0%, 92%);
+    padding: 20px;
+    margin-top: 3rem;
+}
+
+p[class="formHeader"]{
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-bottom: 1.3rem;
+}
+
+.form-title {
+  margin: 0 0 10px 0;
+  color: #333;
+  text-align: center;
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #5973e7;
+}
+
+.form-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: hsl(226, 91%, 70%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.form-button:active {
+  transform: translateY(0);
+}
+
+.form-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 30px 0;
+}
+
+@media (max-width: 600px) {
+  .form-wrapper {
+    padding: 30px 20px;
+  }
+  
+  .form-radio-group {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
