@@ -1,6 +1,8 @@
 import { Router } from 'express';
-import { renderNavbar } from '../controllers/navbar.js';
+import { renderIndexNavbar } from '../controllers/navbar.js';
+import { renderIndex } from '../controllers/index.js';
 
 export const indexRouter = Router();
 
-indexRouter.get("/", renderNavbar)
+indexRouter.get("/", renderIndexNavbar)
+indexRouter.get("/", renderIndex)

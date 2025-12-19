@@ -1,6 +1,8 @@
 import { Router } from 'express';
-import { renderAllGames } from '../controllers/allGames.js'
+import { renderAllGames } from '../controllers/allGames.js';
+import { renderAllGamesNavbar } from '../controllers/navbar.js';
 
 export const allGamesRouter = Router();
 
-allGamesRouter.get("/allGames", renderAllGames)
+allGamesRouter.get("/", renderAllGamesNavbar);
+allGamesRouter.get("/", renderAllGames);
