@@ -74,18 +74,44 @@ body[class="homepage"]{
     background-color: var(--whiteColor);
 }
 
+@keyframes fadeIn {
+  from { 
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+  to {
+        opacity: 1; 
+        transform: translateY(0px);
+    }
+}
+
 div[class="indexContainer"]{
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 4.2rem;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    top: 0;
+    animation-timing-function: ease-in;
+  }
+  50% {
+    top: 12px;
+    animation-timing-function: ease-out;
+  }
 }
 
 img{
+    position: relative;
+    top: 50px;
     height: 425px;
-    width: 515px;
+    width: 600px;
     border-radius: 20px;
     margin: 0 3rem;
+    animation: bounce 2s infinite;
 }
 
 p[class="homepageText"]{
@@ -101,17 +127,19 @@ ul[class="homeButtonList"]{
 }
 
 a[class="homeButton"]{
+    display: inline-block;
     background-color: hsl(210, 86%, 66%);
     color: hsl(0, 0%, 100%);
     font-size: 17px;
     padding: 10px;
     font-weight: 500;
     border-radius: 20px;
-    transition: transform 0.3s;
+    transition: transform 0.2s;
 }
 
 a[class="homeButton"]:hover{
     background-color: hsl(210, 64%, 50%);
+    box-shadow: 1px 1px 20px 1px hsl(226, 91%, 70%);
     transform: scale(1.1);
 }
 
