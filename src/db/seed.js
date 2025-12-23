@@ -9,7 +9,7 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS games (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   name VARCHAR ( 255 ),
-  price DECIMAL ( 2 ),
+  price DECIMAL(10, 2),
   categories VARCHAR ( 255 )
 );
 
@@ -31,8 +31,8 @@ VALUES
 `;
 
 
-async function main(){
-  console.log("seeding...");
+async function DatabaseLoader(){
+  console.log("Populating database via script");
   const client = new Client({
     connectionString: process.env.DATABASE
   });
@@ -40,8 +40,8 @@ async function main(){
   await client.connect();
   await client.query(SQL);
   await client.end();
-  console.log("done");
+  console.log("Done");
 }
 
-main();
+DatabaseLoader();
 
