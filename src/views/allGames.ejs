@@ -9,13 +9,7 @@
     <h1><%= title %></h1>
     <div>
         <ul>
-            <% gamesData.forEach(game => { %>
-              <li>
-                <p><%= game.name %></p>
-                <p><%= game.price %></p>
-                <p><%= game.categories %></p>
-              </li>
-            <% }); %>
+            <% gamesData %>
         </ul>
     </div>
   </body>
