@@ -1,19 +1,9 @@
 import { body, validationResult, matchedData } from 'express-validator';
 import { AddingNewGame } from '../db/queries.js';
-import { navbarElements } from './navbar.js';
-import { GettingAllGames } from '../db/queries.js';
 
 
 export async function renderNewGameForm(request, response) {
-    const GamesData = await GettingAllGames();
-    response.render("newGame", {
-        title: "All available games", 
-        gamesData: GamesData, 
-        homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
-            iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
-            your next favorite game starts here.`, 
-        navbarElements: navbarElements
-    })
+    response.render("newGame")
 }
 
 const validateGame = [

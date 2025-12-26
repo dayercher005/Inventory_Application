@@ -7,45 +7,29 @@ export const navbarElements = [
 ]
 
 export async function renderIndexNavbar(request, response) {
-    const GamesData = await GettingAllGames();
-    response.render("index", {
-        title: "All available games", 
-        gamesData: GamesData, 
+    response.locals.navbarElements = navbarElements;
+    response.render("index", { 
         homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
             iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
             your next favorite game starts here.`, 
-        navbarElements: navbarElements});
+    });
 }
 
 export async function renderAllGamesNavbar(request, response) {
     const GamesData = await GettingAllGames();
+    response.locals.navbarElements = navbarElements;
     response.render("allGames", {
         title: "All available games", 
-        gamesData: GamesData, 
-        homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
-            iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
-            your next favorite game starts here.`, 
-        navbarElements: navbarElements});
+        gamesData: GamesData 
+    });
 }
 
 export async function renderNewGameNavbar(request, response) {
-    const GamesData = await GettingAllGames();
-    response.render("newGame", {
-        title: "All available games", 
-        gamesData: GamesData, 
-        homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
-            iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
-            your next favorite game starts here.`, 
-        navbarElements: navbarElements});
+    response.locals.navbarElements = navbarElements;
+    response.render("newGame");
 }
 
 export async function renderErrorNavbar(request, response){
-    const GamesData = await GettingAllGames();
-    response.render("error", {
-        title: "All available games", 
-        gamesData: GamesData, 
-        homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
-            iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
-            your next favorite game starts here.`, 
-        navbarElements: navbarElements});
+    response.locals.navbarElements = navbarElements;
+    response.render("error");
 }
