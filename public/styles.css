@@ -154,10 +154,87 @@ span[class="homeButton"]{
 
 
 /* CSS Styling for featuring All Games Page */
+
+h1[class="headerTitle"]{
+  text-align: center;
+}
+
+div[class="gamesGridContainer"]{
+  display: flex;
+  justify-content: center;
+}
+
 ul[class="allGamesGrid"]{
   display: grid;
-  grid-template-rows: repeat(1fr, 4);
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4%;
+}
+
+li[class="gamesGridList"]{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: hsl(240, 29%, 21%);
+  transition: 0.2s transform;
+}
+
+li[class="gamesGridList"]:hover{
+  transform: scale(1.1);
+  box-shadow: 5px 5px 20px 5px hsl(0, 0%, 51%);
+}
+
+.gameTextStyling{
+  font-weight: 700;
+  font-size: 1.15rem;
+  color:hsl(0, 10%, 88%);
+}
+
+p[class="gameTextStyling name"]{
+  font-size: 1.25rem;
+}
+
+span[class="categoryStyling"]{
+  border-radius: 5px;
+  background-color: hsl(247, 80%, 68%);
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+button[class="updateButton"]{
+  background-color: hsl(213, 100%, 67%);
+  font-size: 1.13rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  color: hsl(0, 10%, 88%);
+  min-width: 150px;
+  transition: 0.2s transform;
+  margin-bottom: 0.6rem;
+}
+
+button[class="updateButton"]:hover{
+  transform: scale(1.1);
+  background-color: hsl(213, 70%, 45%);
+}
+
+button[class="removeButton"]{
+  background-color: hsl(0, 95%, 59%);
+  font-size: 1.13rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  color: hsl(0, 10%, 88%);
+  min-width: 150px;
+  transition: 0.2s transform;
+  margin-bottom: 1rem;
+}
+
+button[class="removeButton"]:hover{
+  transform: scale(1.1);
+  background-color: hsl(0, 70%, 51%);
 }
 
 
@@ -187,20 +264,18 @@ p[class="formHeader"]{
 }
 
 
-.form-group {
+.formGroupContainer {
   margin-bottom: 20px;
 }
 
-.form-label {
+.formLabel {
   display: block;
   margin-bottom: 8px;
   color: #333;
   font-weight: 500;
 }
 
-.form-input,
-.form-select,
-.form-textarea {
+.form-input{
   width: 100%;
   padding: 12px 16px;
   border: 2px solid #e0e0e0;
@@ -217,7 +292,7 @@ p[class="formHeader"]{
   border-color: #5973e7;
 }
 
-.form-button {
+.formSubmitButton {
   width: 100%;
   padding: 14px 24px;
   background: hsl(226, 91%, 70%);
@@ -230,12 +305,12 @@ p[class="formHeader"]{
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-button:hover {
+.formSubmitButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.form-button:active {
+.formSubmitButton:active {
   transform: translateY(0);
 }
 
@@ -255,3 +330,8 @@ p[class="formHeader"]{
     gap: 12px;
   }
 }
+
+
+
+
+
