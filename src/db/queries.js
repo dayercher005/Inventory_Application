@@ -1,12 +1,18 @@
 import { pool } from "./pool.js";
 
 export async function GettingAllGames(){
-    const { AllGamesData } = await pool.query("SELECT * FROM games");
-    return AllGamesData;
+    try{
+        const { rows } = await pool.query("SELECT * FROM games");
+        console.log(rows);
+        return rows;
+    } catch (error){
+        return error
+    }
 }
 
 export async function AddingNewGame(newGameName, newGamePrice, newGameCategory){
     await pool.query(
-        ` INSERT INTO games (name, price, categories) VALUES ($1),` [newGameName, newGamePrice, newGameCategory]
+        " INSERT INTO games (name, price, categories) VALUES ($1, $2, $3)," [newGameName, newGamePrice, newGameCategory]
     );
+
 }
