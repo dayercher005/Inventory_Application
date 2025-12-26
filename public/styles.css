@@ -153,6 +153,15 @@ span[class="homeButton"]{
 
 
 
+/* CSS Styling for featuring All Games Page */
+ul[class="allGamesGrid"]{
+  display: grid;
+  grid-template-rows: repeat(1fr, 4);
+  grid-template-columns: 1fr;
+}
+
+
+
 /* CSS Styling for New Game Form Page */
 
 div[class="formContainer"]{
