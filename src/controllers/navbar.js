@@ -1,4 +1,4 @@
-import { GettingAllGames } from '../db/queries.js';
+import { GettingAllGames, GettingCategories } from '../db/queries.js';
 
 export const navbarElements = [
     {href: '/', text: 'Home'},
@@ -25,8 +25,11 @@ export async function renderAllGamesNavbar(request, response) {
 }
 
 export async function renderNewGameNavbar(request, response) {
+    const GamesCategories = await GettingCategories();
     response.locals.navbarElements = navbarElements;
-    response.render("newGame");
+    response.render("newGame", {
+        AvailableCategories: GamesCategories
+    });
 }
 
 export async function renderErrorNavbar(request, response){
