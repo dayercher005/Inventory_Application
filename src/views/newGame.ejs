@@ -26,12 +26,14 @@
             <label for="categories" class="formLabel" >Categories</label>
 
             <div>
-              <label>
+              <div class="dropdownContainer">
                 <% AvailableCategories.map(categories => { %>
-                  <input type="checkbox">
-                  <span> <%=categories.category%> </span>
+                  <div class="checkboxContainer">
+                    <input type="checkbox">
+                    <span> <%=categories.category%> </span>
+                  </div>
                 <% }); %>
-              </label>
+                </div>
             </div>
           </div>
 
