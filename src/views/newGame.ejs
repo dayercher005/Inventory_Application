@@ -27,8 +27,10 @@
 
             <div>
               <label>
+                <% AvailableCategories.map(categories => { %>
                   <input type="checkbox">
-                  <span>React.js</span>
+                  <span> <%=categories.category%> </span>
+                <% }); %>
               </label>
             </div>
           </div>

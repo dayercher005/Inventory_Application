@@ -286,10 +286,15 @@ p[class="formHeader"]{
 }
 
 .form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
+.form-select:focus {
   outline: none;
   border-color: #5973e7;
+}
+
+
+div[class="dropdownContainer"]{
+  display: flex;
+  flex-direction: column;
 }
 
 .formSubmitButton {
@@ -314,7 +319,7 @@ p[class="formHeader"]{
   transform: translateY(0);
 }
 
-.form-divider {
+.formDivider {
   height: 1px;
   background: #e0e0e0;
   margin: 30px 0;
