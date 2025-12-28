@@ -242,7 +242,7 @@ button[class="removeButton"]:hover{
 /* CSS Styling for New Game Form Page */
 
 div[class="formContainer"]{
-    max-width: 400px;
+    max-width: 480px;
     margin: auto;
     border-radius: 30px;
     background-color: hsl(0, 0%, 92%);
@@ -293,8 +293,38 @@ p[class="formHeader"]{
 
 
 div[class="dropdownContainer"]{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.3rem;
+}
+
+div[class="checkboxContainer"]{
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  background-color: hsl(0, 0%, 76%);
+  margin: 0.25rem;
+  border-radius: 10px;
+  padding: 0.75rem 0.25rem;
+  transition: 0.25s transform;
+}
+
+div[class="checkboxContainer"]:hover{
+  
+  transform: scale(1.05);
+}
+
+input[class="checkboxInput"]{
+  width: 1.2rem;
+  height: 1.2rem;
+  border: none;
+}
+
+
+span[class="checkboxLabel"]{
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-left: 2%;
+  margin-bottom: auto;
 }
 
 .formSubmitButton {
