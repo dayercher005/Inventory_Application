@@ -3,7 +3,8 @@ import { GettingAllGames, GettingCategories } from '../db/queries.js';
 export const navbarElements = [
     {href: '/', text: 'Home'},
     {href: '/allGames', text: 'All Games'},
-    {href: '/newGame', text: '+ Add New Game'}
+    {href: '/newGame', text: '+ Add New Game'},
+    {href: '/updateGame', text: 'Update Game'}
 ]
 
 export async function renderIndexNavbar(request, response) {
@@ -30,6 +31,12 @@ export async function renderNewGameNavbar(request, response) {
     response.render("newGame", {
         AvailableCategories: GamesCategories
     });
+}
+
+
+export async function renderUpdateGameNavbar(request, response){
+    response.locals.navbarElements = navbarElements;
+    response.render("updateGame")
 }
 
 export async function renderErrorNavbar(request, response){
