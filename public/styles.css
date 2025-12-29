@@ -194,6 +194,11 @@ p[class="gameTextStyling name"]{
   font-size: 1.25rem;
 }
 
+div[class="gameTextStyling categories"]{
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
 span[class="categoryStyling"]{
   border-radius: 5px;
   background-color: hsl(247, 80%, 68%);
@@ -203,7 +208,8 @@ span[class="categoryStyling"]{
   margin: 0.25rem;
 }
 
-button[class="updateButton"]{
+a[class="updateButton"]{
+  text-align: center;
   background-color: hsl(213, 100%, 67%);
   font-size: 1.13rem;
   border: none;
@@ -215,7 +221,7 @@ button[class="updateButton"]{
   margin-bottom: 0.6rem;
 }
 
-button[class="updateButton"]:hover{
+a[class="updateButton"]:hover{
   transform: scale(1.1);
   background-color: hsl(213, 70%, 45%);
 }
@@ -275,7 +281,7 @@ p[class="formHeader"]{
   font-weight: 500;
 }
 
-.form-input{
+.formInput{
   width: 100%;
   padding: 12px 16px;
   border: 2px solid #e0e0e0;
@@ -285,7 +291,7 @@ p[class="formHeader"]{
   transition: border-color 0.3s ease;
 }
 
-.form-input:focus,
+.formInput:focus,
 .form-select:focus {
   outline: none;
   border-color: #5973e7;
