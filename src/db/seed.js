@@ -6,17 +6,19 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const SQL = `
-CREATE TABLE IF NOT EXISTS games (
-  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  name VARCHAR ( 255 ),
-  price DECIMAL(10, 2),
-  categories TEXT[]
-);
-
 CREATE TABLE IF NOT EXISTS categories (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   category VARCHAR ( 255 )
 );
+
+CREATE TABLE IF NOT EXISTS games (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR ( 255 ),
+  price DECIMAL(10, 2),
+  gameCategories TEXT[]
+);
+
+
 
 INSERT INTO categories (category)
 VALUES
@@ -42,16 +44,17 @@ VALUES
   ('Crafting'),
   ('Open World'),
   ('Adventure'),
-  ('Arcade')
-  ('Magic')
-  ('Physics')
+  ('Arcade'),
+  ('Magic'),
+  ('Physics'),
   ('Roguelite'),
   ('Funny'),
   ('Party'),
   ('Management'),
-  ('Casual')
+  ('Casual');
 
-INSERT INTO games (name, price, categories) 
+
+INSERT INTO games (name, price, gameCategories) 
 VALUES
   ('Counter Strike 2', '0.00', ARRAY['Competitive', 'Action', 'Shooter', 'FPS', 'Free to Play']),
   ('Dota 2', '0.00', ARRAY['Free to Play', 'MOBA', 'Strategy', 'eSports']),
@@ -65,7 +68,9 @@ VALUES
   ('Tomb Raider', '2.39', ARRAY['Adventure', 'Action']),
   ('Shell Diver', '3.93', ARRAY['Casual', 'Arcade', 'Management']),
   ('MageQuit', '5.80', ARRAY['Magic', 'Physics', 'Funny', 'Party', 'PvP']),
-  ('Hades', '6.60', ARRAY['Hack and Slash', 'Roguelite'])
+  ('Hades', '6.60', ARRAY['Hack and Slash', 'Roguelite']);
+
+
 `;
 
 
