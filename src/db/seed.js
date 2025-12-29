@@ -13,6 +13,44 @@ CREATE TABLE IF NOT EXISTS games (
   categories TEXT[]
 );
 
+CREATE TABLE IF NOT EXISTS categories (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  category VARCHAR ( 255 )
+);
+
+INSERT INTO categories (category)
+VALUES
+  ('Competitive'),
+  ('Action'),
+  ('Shooter'),
+  ('FPS'),
+  ('Free to Play'),
+  ('MOBA'),
+  ('Strategy'),
+  ('eSports'),
+  ('Extraction Shooter'),
+  ('PvP'),
+  ('PvE'),
+  ('Cats'),
+  ('Clicker'),
+  ('Hack and Slash'),
+  ('Action RPG'),
+  ('Hero Shooter'),
+  ('Survival'),
+  ('Battle Royale'),
+  ('Looter Shooter'),
+  ('Crafting'),
+  ('Open World'),
+  ('Adventure'),
+  ('Arcade')
+  ('Magic')
+  ('Physics')
+  ('Roguelite'),
+  ('Funny'),
+  ('Party'),
+  ('Management'),
+  ('Casual')
+
 INSERT INTO games (name, price, categories) 
 VALUES
   ('Counter Strike 2', '0.00', ARRAY['Competitive', 'Action', 'Shooter', 'FPS', 'Free to Play']),
