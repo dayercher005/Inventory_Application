@@ -8,7 +8,7 @@ export async function renderNewGameForm(request, response) {
     response.render("newGame");
 }
 
-const validateGame = [
+const validateNewGame = [
     body("name")
     .trim()
     .notEmpty()
@@ -21,7 +21,7 @@ const validateGame = [
 
 export function sendNewGameForm(request, response, next){
 
-    const errors = validationResult(validateGame);
+    const errors = validationResult(validateNewGame);
 
     if(!errors.isEmpty()){
         return response.status(400).render("error", {
@@ -30,8 +30,8 @@ export function sendNewGameForm(request, response, next){
     }
 
     const { name, price, categories } = matchedData(request);
-    AddingNewGame(name, price, categories)
-    response.redirect("/allGames")
+    AddingNewGame(name, price, categories);
+    response.redirect("/allGames");
 }
 
 

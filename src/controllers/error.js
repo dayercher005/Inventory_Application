@@ -1,4 +1,3 @@
-import { navbarElements } from './navbar.js';
 import { GettingAllGames } from '../db/queries.js';
 
 export async function renderErrorPage(request, response){

@@ -1,4 +1,4 @@
-import { GettingAllGames, GettingCategories } from '../db/queries.js';
+import { GettingAllGames, GettingCategories, GettingAllGameNames } from '../db/queries.js';
 
 export const navbarElements = [
     {href: '/', text: 'Home'},
@@ -9,34 +9,37 @@ export const navbarElements = [
 
 export async function renderIndexNavbar(request, response) {
     response.locals.navbarElements = navbarElements;
-    response.render("index", { 
-        homepageText: `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
+    response.locals.homepageText = `Welcome to a world of play without limits. This game catalogue brings together thrilling adventures, 
             iconic classics, and hidden gems, all in one place. Whether you’re chasing competition or discovery, 
             your next favorite game starts here.`, 
-    });
+    response.render("index");
 }
 
 export async function renderAllGamesNavbar(request, response) {
     const GamesData = await GettingAllGames();
+    const AvailableCategories = await GettingCategories();
+    response.locals.title = "All available games";
     response.locals.navbarElements = navbarElements;
-    response.render("allGames", {
-        title: "All available games", 
-        gamesData: GamesData 
-    });
+    response.locals.gamesData = GamesData;
+    response.locals.AvailableCategories = AvailableCategories;
+    response.render("allGames");
 }
 
 export async function renderNewGameNavbar(request, response) {
-    const GamesCategories = await GettingCategories();
+    const AvailableCategories = await GettingCategories();
     response.locals.navbarElements = navbarElements;
-    response.render("newGame", {
-        AvailableCategories: GamesCategories
-    });
+    response.locals.AvailableCategories = AvailableCategories;
+    response.render("newGame");
 }
 
 
 export async function renderUpdateGameNavbar(request, response){
+    const AvailableCategories = await GettingCategories();
+    const GameNames = await GettingAllGameNames();
+    response.locals.GameNames = GameNames;
     response.locals.navbarElements = navbarElements;
-    response.render("updateGame")
+    response.locals.AvailableCategories = AvailableCategories;
+    response.render("updateGame");
 }
 
 export async function renderErrorNavbar(request, response){
