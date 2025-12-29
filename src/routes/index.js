@@ -4,5 +4,5 @@ import { renderIndex } from '../controllers/index.js';
 
 export const indexRouter = Router();
 
-indexRouter.get("/", renderIndexNavbar)
-indexRouter.get("/", renderIndex)
+indexRouter.get("/", renderIndexNavbar);
+indexRouter.get("/", renderIndex);
