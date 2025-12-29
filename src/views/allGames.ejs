@@ -7,15 +7,25 @@
     <%- include('navbar', {navbarElements: navbarElements}) %>
 
     <h1 class="headerTitle"><%= title %></h1>
+
+    <div class="categoriesSelectionContainer">
+      <h1>All Existing Game Categories </h1>
+      <ul>
+        <% AvailableCategories.map(categories => { %>
+          <li> <% categories.category %> </li>
+        <% }); %>
+      </ul>
+    </div>
+
     <div class="gamesGridContainer">
         <ul class="allGamesGrid">
             <% gamesData.map(game => { %>
               <li class="gamesGridList">
                 <p class="gameTextStyling name"><%= game.name%></p>
                 <p class="gameTextStyling price"><%= game.price == 0.00 ? 'Free' : game.price %></p>
-                <p class="gameTextStyling categories"><% game.categories.map(category => { %>
+                <div class="gameTextStyling categories"><% game.gamecategories.map(category => { %>
                   <span class="categoryStyling"><%= category %></span>
-                <% }); %></p>
+                <% }); %></div>
                 <a href="/updateGame" class="updateButton">Update</a>
                 <button class="removeButton">Remove</button>
               </li>
