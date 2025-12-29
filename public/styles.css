@@ -108,7 +108,7 @@ div[class="indexContainer"]{
   }
 }
 
-img{
+img[class="videoGameImage"]{
     position: relative;
     top: 50px;
     height: 425px;
@@ -162,6 +162,49 @@ h1[class="headerTitle"]{
 div[class="gamesGridContainer"]{
   display: flex;
   justify-content: center;
+}
+
+div[class="categoriesSelectionContainer"]{
+  position: absolute;
+  margin-left: 0.7rem;
+}
+
+h1[class="sidebarHeader"]{
+  font-size: 1.25rem;
+  border-bottom: 3.5px solid black;
+}
+
+ul[class="categoriesSelection"]{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+li[class="sidebarLink"]{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 76%);
+  padding: 0.5rem; 
+  margin: 0.25rem 0;
+  transition: 0.25s transform;
+}
+
+img[class="crossImage"]{
+  width: 2rem;
+  height: 2rem;
+  border: 0.2rem solid hsl(0, 4%, 25%);
+  border-radius: 1rem;
+}
+
+img[class="crossImage"]:hover{
+  background-color: hsl(0, 4%, 50%);
+}
+
+li[class="sidebarLink"]:hover{
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 100px 3px hsl(0, 0%, 51%)
 }
 
 ul[class="allGamesGrid"]{
@@ -315,7 +358,6 @@ div[class="checkboxContainer"]{
 }
 
 div[class="checkboxContainer"]:hover{
-  
   transform: scale(1.05);
 }
 
