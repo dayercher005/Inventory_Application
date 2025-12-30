@@ -4,7 +4,7 @@ import { GettingCategories, GettingAllGameNames } from '../db/queries.js'
 export async function renderUpdateGameForm(request, response){
     const GameCategories = await GettingCategories();
     const GameNames = await GettingAllGameNames();
-    response.locals.AllGameNames = GameNames;
+    response.locals.AllGameNames = GameNames
     response.locals.AvailableCategories = GameCategories;
     response.render("updateGame");
 } 

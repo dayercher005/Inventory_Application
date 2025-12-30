@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS games (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   name VARCHAR ( 255 ),
   price DECIMAL(10, 2),
-  gameCategories TEXT[]
+  categories TEXT[]
 );
 
 
@@ -54,7 +54,7 @@ VALUES
   ('Casual');
 
 
-INSERT INTO games (name, price, gameCategories) 
+INSERT INTO games (name, price, categories) 
 VALUES
   ('Counter Strike 2', '0.00', ARRAY['Competitive', 'Action', 'Shooter', 'FPS', 'Free to Play']),
   ('Dota 2', '0.00', ARRAY['Free to Play', 'MOBA', 'Strategy', 'eSports']),

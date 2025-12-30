@@ -9,10 +9,11 @@
     <h1 class="headerTitle"><%= title %></h1>
 
     <div class="categoriesSelectionContainer">
-      <h1>All Existing Game Categories </h1>
-      <ul>
+      <h1 class="sidebarHeader">All Existing Game Categories </h1>
+      <ul class="categoriesSelection">
         <% AvailableCategories.map(categories => { %>
-          <li> <% categories.category %> </li>
+          <li class="sidebarLink"> <%= categories.category %> 
+          <a><img class="crossImage" src="/images/cross.svg"></a></li>
         <% }); %>
       </ul>
     </div>
@@ -23,7 +24,7 @@
               <li class="gamesGridList">
                 <p class="gameTextStyling name"><%= game.name%></p>
                 <p class="gameTextStyling price"><%= game.price == 0.00 ? 'Free' : game.price %></p>
-                <div class="gameTextStyling categories"><% game.gamecategories.map(category => { %>
+                <div class="gameTextStyling categories"><% game.categories.map(category => { %>
                   <span class="categoryStyling"><%= category %></span>
                 <% }); %></div>
                 <a href="/updateGame" class="updateButton">Update</a>

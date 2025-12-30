@@ -10,7 +10,7 @@
 
         <p class="formHeader">Update Existing game</p>
 
-        <form class="formContainer" action="/newGame" method="POST">
+        <form class="formContainer" action="/updateGame" method="POST">
 
           <div class="formGroupContainer">
             <label for="name" class="formLabel">Name of Game *</label>
@@ -33,7 +33,7 @@
               <div class="dropdownContainer">
                 <% AvailableCategories.map(categories => { %>
                   <div class="checkboxContainer">
-                    <input class="checkboxInput" type="checkbox">
+                    <input class="checkboxInput" name="updateCategoryChoice" value="<% categories.category %>" type="checkbox">
                     <span class="checkboxLabel"> <%= categories.category %> </span>
                   </div>
                 <% }); %>

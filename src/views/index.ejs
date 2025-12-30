@@ -7,7 +7,8 @@
     <%- include('navbar', {navbarElements: navbarElements}) %>
 
     <div class="indexContainer">
-      <img alt="Video Game Image" src="/images/game.png">
+      <%- include("errors.ejs") %>
+      <img class="videoGameImage" alt="Video Game Image" src="/images/game.png">
 
       <div>
         <p class="homepageText"><%= homepageText %></p>
