@@ -26,10 +26,17 @@ export async function GettingAllGameNames(){
 // CREATES a new entry of a video game and adds it as a row to the games table of the inventory database.
 export async function AddingNewGame(newGameName, newGamePrice, newGameCategory){
     console.log(newGameName, newGamePrice, newGameCategory);
-    await pool.query(
-    'INSERT INTO games (name, price, categories) VALUES ($1, $2, $3)',
-    [newGameName, newGamePrice, newGameCategory]
-    );
+    if (!Array.isArray(newGameCategory)){
+        await pool.query(
+            'INSERT INTO games (name, price, categories) VALUES ($1, $2, $3)',
+            [newGameName, newGamePrice, [newGameCategory]]
+        )
+    } else {
+        await pool.query(
+            'INSERT INTO games (name, price, categories) VALUES ($1, $2, $3)',
+            [newGameName, newGamePrice, newGameCategory]
+        )
+    }
 }
 
 // READS the existing categories in the categories table of the inventory database.
