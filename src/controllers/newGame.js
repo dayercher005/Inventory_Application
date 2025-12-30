@@ -19,7 +19,6 @@ const validateNewGame = [
     .notEmpty()
     .withMessage("Price of Game cannot be empty. If its free, set price to 0.00"),
     body("newCategoryChoice")
-    
 ]
 
 export const sendNewGameForm = [
@@ -33,10 +32,10 @@ export const sendNewGameForm = [
             })
         }
 
-        const { name, price, categories } = matchedData(request);
-        console.log(name, price, categories)
-        await AddingNewGame(name, price, categories);
-        response.redirect("/allGames")
+        const data = matchedData(request);
+        console.log(data);
+        await AddingNewGame(data.name, data.price, data.newCategoryChoice);
+        response.redirect("/allGames");
     }   
 
 ]

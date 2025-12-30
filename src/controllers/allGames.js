@@ -6,8 +6,6 @@ export async function renderAllGames(request, response){
     response.locals.gamesData = GamesData;
     response.locals.title = "All available games";
     response.locals.AvailableCategories = AvailableCategories;
-    console.log(GamesData);
-    console.log(AvailableCategories);
     response.render("allGames");
 
 }

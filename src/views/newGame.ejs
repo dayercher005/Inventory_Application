@@ -29,7 +29,7 @@
               <div class="dropdownContainer">
                 <% AvailableCategories.map(categories => { %>
                   <div class="checkboxContainer">
-                    <input id="categories" class="checkboxInput" name="newCategoryChoice[]" value="<%= categories.category %>" type="checkbox">
+                    <input id="categories" class="checkboxInput" name="newCategoryChoice" value="<%= categories.category %>" type="checkbox">
                     <span class="checkboxLabel"> <%= categories.category %> </span>
                   </div>
                 <% }); %>
