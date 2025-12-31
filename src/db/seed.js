@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS games (
 );
 
 
-
 INSERT INTO categories (category)
 VALUES
   ('Competitive'),
@@ -69,7 +68,6 @@ VALUES
   ('Shell Diver', '3.93', ARRAY['Casual', 'Arcade', 'Management']),
   ('MageQuit', '5.80', ARRAY['Magic', 'Physics', 'Funny', 'Party', 'PvP']),
   ('Hades', '6.60', ARRAY['Hack and Slash', 'Roguelite']);
-
 
 `;
 

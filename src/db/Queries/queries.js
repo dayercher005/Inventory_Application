@@ -1,4 +1,4 @@
-import { pool } from "./pool.js";
+import { pool } from "../pool.js";
 
 /* 
 Create, Read, Update, Read (CRUD) queries for querying data from PostgreSQL database. 
@@ -9,18 +9,16 @@ Inventory database consists of 2 tables: categories table and games table.
 export async function GettingAllGames(){
     try{
         const { rows } = await pool.query('SELECT * FROM games');
-        console.log(rows);
         return rows;
     } catch (error){
         return error
     }
 }
 
-// READS only the names of the existing data of video games in the games table of the inventory database.
+// READS only the names of all existing data of video games in the games table of the inventory database.
 export async function GettingAllGameNames(){
     const { rows } = await pool.query('SELECT name FROM games');
-    console.log(rows);
-    return rows
+    return rows;
 }
 
 // CREATES a new entry of a video game and adds it as a row to the games table of the inventory database.
@@ -44,5 +42,28 @@ export async function GettingCategories(){
     const { rows } = await pool.query(
         'SELECT * FROM categories;'
     );
+    return rows;
+}
+
+
+// DELETE individual category categories table of the inventory database.
+export async function DeletingCategories(){
+    await pool.query(
+        'DELETE FROM categories'
+    )
+}
+
+
+// UPDATES individual game in the games table of the inventory database.
+export async function UpdateGame(updatedPrice, updatedCategories, name){
+    await pool.query('UPDATE games SET price = $1, categories = $2 WHERE id = $4',
+        [updatedPrice, updatedCategories, name]
+    )
+}
+
+
+// 
+export async function getGameByID(gameID){
+    const { rows } = await pool.query('SELECT name FROM games WHERE id = $1', gameID);
     return rows;
 }
