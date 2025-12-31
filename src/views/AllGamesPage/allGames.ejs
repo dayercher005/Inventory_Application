@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="homepage">
-    <%- include('navbar', {navbarElements: navbarElements}) %>
+    <%- include('partials/navbar', {navbarElements: navbarElements}) %>
 
     <h1 class="headerTitle"><%= title %></h1>
 
@@ -22,13 +22,13 @@
         <ul class="allGamesGrid">
             <% gamesData.map(game => { %>
               <li class="gamesGridList">
-                <p class="gameTextStyling name"><%= game.name%></p>
-                <p class="gameTextStyling price"><%= game.price == 0.00 ? 'Free' : game.price %></p>
-                <div class="gameTextStyling categories"><% game.categories.map(category => { %>
-                  <span class="categoryStyling"><%= category %></span>
-                <% }); %></div>
-                <a href="/updateGame" class="updateButton">Update</a>
-                <button class="removeButton">Remove</button>
+                <a href= /allGames/<%= game.id %> >
+                  <p class="gameTextStyling name"><%= game.name%></p>
+                  <p class="gameTextStyling price"><%= game.price == 0.00 ? 'Free' : `$${game.price}` %></p>
+                  <div class="gameTextStyling categories"><% game.categories.map(category => { %>
+                    <span class="categoryStyling"><%= category %></span>
+                  <% }); %></div>
+                </a>
               </li>
             <% }); %>
         </ul>
