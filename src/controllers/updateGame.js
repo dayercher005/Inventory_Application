@@ -1,5 +1,5 @@
 import { body, validationResult, matchedData } from 'express-validator';
-import { GettingCategories, GettingAllGameNames } from '../db/queries.js'
+import { GettingCategories, GettingAllGameNames } from '../db/Queries/queries.js'
 
 export async function renderUpdateGameForm(request, response){
     const GameCategories = await GettingCategories();
@@ -18,20 +18,26 @@ const validateUpdatedGame = [
     body("price")
     .trim()
     .notEmpty()
-    .withMessage("Price of Game cannot be empty. If its free, set price to 0.00")
+    .withMessage("Price of Game cannot be empty. If its free, set price to 0.00"),
+    body("updateCategoryChoice")
 ]
 
 
-export async function sendUpdateGameForm(request, response){
-    const errors = validationResult(validateUpdatedGame);
-    
-    if(!errors.isEmpty()){
-        return response.status(400).render("error", {
-            errors: errors.array()
-        })
-    }
-    
-    const { name, price, categories } = matchedData(request);
+export const sendNewGameForm = [
+    validateUpdatedGame, 
+    async (request, response) => {
+        const errors = validationResult(request);
 
-    response.redirect("/allGames");
-}
+        if(!errors.isEmpty()){
+            return response.status(400).render("errors", {
+                errors: errors.array()
+            })
+        }
+
+        const data = matchedData(request);
+        console.log(data);
+        await AddingNewGame(data.name, data.price, data.updatedCategoryChoice);
+        response.redirect("/allGames");
+    }   
+
+]

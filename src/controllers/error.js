@@ -1,4 +1,4 @@
-import { GettingAllGames } from '../db/queries.js';
+import { GettingAllGames } from '../db/Queries/queries.js';
 
 export async function renderErrorPage(request, response){
     const GamesData = await GettingAllGames();
