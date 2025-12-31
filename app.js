@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { indexRouter } from './src/routes/index.js';
-import { allGamesRouter } from './src/routes/allGames.js';
-import { newGameRouter } from './src/routes/newGame.js';
+import { indexRouter } from './src/routes/HomePage/index.js';
+import { allGamesRouter } from './src/routes/AllGames/allGames.js';
+import { newGameRouter } from './src/routes/NewGamesForm/newGame.js';
 import { updateGameRouter } from './src/routes/updateGame.js'
 import { renderErrorPage } from './src/controllers/error.js';
 
