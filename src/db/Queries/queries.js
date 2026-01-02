@@ -52,9 +52,10 @@ export async function DeletingCategories(){
 
 // UPDATES individual game in the games table of the inventory database.
 export async function UpdateGame(updatedName, updatedPrice, updatedCategories, id){
-    await pool.query('UPDATE games SET name = $1, price = $2 categories = $3 WHERE id = $4',
+    await pool.query('UPDATE games SET name = $1, price = $2, categories = $3 WHERE id = $4;',
         [updatedName, updatedPrice, updatedCategories, id]
-    )
+    );
+    console.log(updatedName, updatedPrice, updatedCategories, id);
 }
 
 
