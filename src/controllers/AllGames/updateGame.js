@@ -1,5 +1,5 @@
 import { body, validationResult, matchedData } from 'express-validator';
-import { GettingCategories, GettingAllGameNames } from '../../db/Queries/queries.js';
+import { GettingCategories, GettingAllGameNames, UpdateGame, getIndividualGameDetails } from '../../db/Queries/queries.js';
 import { navbarElements } from '../navbar.js';
 
 export async function renderUpdatedGameForm(request, response){
@@ -29,6 +29,11 @@ const validateUpdatedGame = [
 export const sendUpdatedGameForm = [
     validateUpdatedGame, 
     async (request, response) => {
+
+
+        const gameID = request.params.gameID;
+        const game = await getIndividualGameDetails(Number(gameID));
+
         const errors = validationResult(request);
 
         if(!errors.isEmpty()){
@@ -37,9 +42,9 @@ export const sendUpdatedGameForm = [
             })
         }
 
-        const data = matchedData(request);
+        const {updatedName, updatedPrice, updatedCategories} = matchedData(request);
 
-        await AddingNewGame(data.name, data.price, data.updatedCategoryChoice);
+        await UpdateGame(updatedName, updatedPrice, updatedCategories, game[0].id);
         response.redirect("/allGames");
     }   
 

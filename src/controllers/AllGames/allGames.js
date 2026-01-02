@@ -12,8 +12,8 @@ export async function renderAllGames(request, response){
 }
 
 export async function renderIndividualGames(request, response){
-    const gameID = request.params.gameID;
 
+    const gameID = request.params.gameID;
     const game = await getIndividualGameDetails(Number(gameID));
 
     console.log(game)
