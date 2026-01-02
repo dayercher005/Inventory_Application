@@ -7,12 +7,8 @@ Inventory database consists of 2 tables: categories table and games table.
 
 // READS all existing data of video games in the games table of the inventory database (e.g. Name, Price and gameCategories of each game).
 export async function GettingAllGames(){
-    try{
-        const { rows } = await pool.query('SELECT * FROM games');
-        return rows;
-    } catch (error){
-        return error
-    }
+    const { rows } = await pool.query('SELECT * FROM games');
+    return rows;
 }
 
 // READS only the names of all existing data of video games in the games table of the inventory database.
@@ -55,9 +51,9 @@ export async function DeletingCategories(){
 
 
 // UPDATES individual game in the games table of the inventory database.
-export async function UpdateGame(updatedPrice, updatedCategories, name){
-    await pool.query('UPDATE games SET price = $1, categories = $2 WHERE id = $4',
-        [updatedPrice, updatedCategories, name]
+export async function UpdateGame(updatedName, updatedPrice, updatedCategories, id){
+    await pool.query('UPDATE games SET name = $1, price = $2 categories = $3 WHERE id = $4',
+        [updatedName, updatedPrice, updatedCategories, id]
     )
 }
 
