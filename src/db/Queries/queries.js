@@ -59,8 +59,15 @@ export async function UpdateGame(updatedName, updatedPrice, updatedCategories, i
 }
 
 
-// 
+// READS individual game details in the game table of the inventory database.
 export async function getIndividualGameDetails(gameID){
-    const { rows } = await pool.query('SELECT * FROM games WHERE id = $1', [gameID]);
+    const { rows } = await pool.query('SELECT * FROM games WHERE id = $1;', [gameID]);
     return rows;
+}
+
+
+// DELETES game details in the game table of the inventory database.
+export async function DeletingGameQuery(gameID){
+    await pool.query('DELETE FROM games WHERE id = $1;', 
+        [gameID]);
 }
