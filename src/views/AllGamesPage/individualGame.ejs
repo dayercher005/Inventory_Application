@@ -17,7 +17,9 @@
 
     <div class="buttonContainer">
         <a href="/allGames/<%= id %>/updateGame" class="updateButton">Update</a>
-        <button class="removeButton">Remove</button>
+        <form action="/allGames/<%= id %>/" method="POST">
+            <button class="formSubmitButton" type="submit">Delete</button>
+        </form>
     </div>
   </body>
 </html>
