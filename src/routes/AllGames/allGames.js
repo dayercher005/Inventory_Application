@@ -9,4 +9,4 @@ allGamesRouter.get("/", renderAllGamesNavbar);
 allGamesRouter.get("/", renderAllGames);
 allGamesRouter.get("/:gameID", renderIndividualGames);
 allGamesRouter.get("/:gameID/updateGame", renderUpdatedGameForm);
-allGamesRouter.get("/:gameID/updateGame", sendUpdatedGameForm);
+allGamesRouter.post("/:gameID/updateGame", sendUpdatedGameForm);
