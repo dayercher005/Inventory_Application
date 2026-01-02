@@ -63,7 +63,7 @@ export async function UpdateGame(updatedPrice, updatedCategories, name){
 
 
 // 
-export async function getGameByID(gameID){
-    const { rows } = await pool.query('SELECT name FROM games WHERE id = $1', [gameID]);
+export async function getIndividualGameDetails(gameID){
+    const { rows } = await pool.query('SELECT * FROM games WHERE id = $1', [gameID]);
     return rows;
 }
