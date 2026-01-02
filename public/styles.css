@@ -249,7 +249,12 @@ span[class="categoryStyling"]{
   margin: 0.25rem;
 }
 
+div[class="buttonContainer"]{
+  
+}
+
 a[class="updateButton"]{
+  display: block;
   text-align: center;
   background-color: hsl(213, 100%, 67%);
   font-size: 1.13rem;
@@ -257,9 +262,9 @@ a[class="updateButton"]{
   border-radius: 5px;
   font-weight: 600;
   color: hsl(0, 10%, 88%);
-  min-width: 150px;
+  max-width: 250px;
   transition: 0.2s transform;
-  margin-bottom: 0.6rem;
+
 }
 
 a[class="updateButton"]:hover{
@@ -268,15 +273,16 @@ a[class="updateButton"]:hover{
 }
 
 button[class="removeButton"]{
+  display: block;
   background-color: hsl(0, 95%, 59%);
   font-size: 1.13rem;
   border: none;
   border-radius: 5px;
   font-weight: 600;
   color: hsl(0, 10%, 88%);
-  min-width: 150px;
+  max-width: 550px;
   transition: 0.2s transform;
-  margin-bottom: 1rem;
+
 }
 
 button[class="removeButton"]:hover{
