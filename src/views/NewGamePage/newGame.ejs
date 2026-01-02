@@ -13,23 +13,23 @@
         <form class="formContainer" action="/newGame" method="POST">
 
           <div class="formGroupContainer">
-            <label for="name" class="formLabel">Name of Game *</label>
-            <input type="text" id="name" name="name" class="formInput" required placeholder="Valorant"/>
+            <label for="newName" class="formLabel">Name of Game *</label>
+            <input type="text" id="newName" name="newName" class="formInput" required placeholder="Valorant"/>
           </div>
 
           <div class="formGroupContainer">
-            <label for="price" class="formLabel">Price of Game *</label>
-            <input type="number" min="0.00" step="0.01" id="price" name="price" class="formInput" required placeholder="0.00"/>
+            <label for="newPrice" class="formLabel">Price of Game *</label>
+            <input type="number" min="0.00" step="0.01" id="newPrice" name="newPrice" class="formInput" required placeholder="0.00"/>
           </div>
 
           <div class="formGroupContainer">
-            <label for="categories" class="formLabel" >Categories</label>
+            <label for="newCategoryChoice" class="formLabel" >Categories</label>
 
             <div>
               <div class="dropdownContainer">
                 <% AvailableCategories.map(categories => { %>
                   <div class="checkboxContainer">
-                    <input id="categories" class="checkboxInput" name="newCategoryChoice" value="<%= categories.category %>" type="checkbox">
+                    <input id="newCategoryChoice" class="checkboxInput" name="newCategoryChoice" value="<%= categories.category %>" type="checkbox">
                     <span class="checkboxLabel"> <%= categories.category %> </span>
                   </div>
                 <% }); %>
