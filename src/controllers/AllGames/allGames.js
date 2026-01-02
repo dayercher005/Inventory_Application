@@ -1,4 +1,5 @@
-import { GettingAllGames, GettingCategories, getGameByID } from '../../db/Queries/queries.js';
+import { GettingAllGames, GettingCategories, getIndividualGameDetails } from '../../db/Queries/queries.js';
+import { navbarElements } from '../navbar.js'
 
 export async function renderAllGames(request, response){
     const GamesData = await GettingAllGames();
@@ -11,16 +12,21 @@ export async function renderAllGames(request, response){
 }
 
 export async function renderIndividualGames(request, response){
-    const { gameID } = request.params;
-    console.log(gameID);
+    const gameID = request.params.gameID;
 
-    const game = await getGameByID(Number(gameID));
+    const game = await getIndividualGameDetails(Number(gameID));
+
+    console.log(game)
+    response.locals.navbarElements = navbarElements;
+    response.locals.id = game[0].id;
+    response.locals.name = game[0].name;
+    response.locals.price = game[0].price;
+    response.locals.categories = game[0].categories;
 
     if(!game){
         response.status(404).send("Game not Found");
         return;
     }
 
-    response.send(`Game ID: ${game}`);
+    response.render('AllGamesPage/individualGame');
 }
-

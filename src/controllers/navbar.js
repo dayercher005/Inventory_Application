@@ -3,8 +3,7 @@ import { GettingAllGames, GettingCategories, GettingAllGameNames } from '../db/Q
 export const navbarElements = [
     {href: '/', text: 'Home'},
     {href: '/allGames', text: 'All Games'},
-    {href: '/newGame', text: '+ Add New Game'},
-    {href: '/updateGame', text: 'Update Game'}
+    {href: '/newGame', text: '+ Add New Game'}
 ]
 
 export async function renderIndexNavbar(request, response) {
