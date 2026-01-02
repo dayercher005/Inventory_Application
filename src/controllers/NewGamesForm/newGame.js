@@ -10,11 +10,11 @@ export async function renderNewGameForm(request, response) {
 
 
 const validateNewGame = [
-    body("name")
+    body("newName")
     .trim()
     .notEmpty()
     .withMessage("Name of Game cannot be empty"),
-    body("price")
+    body("newPrice")
     .trim()
     .notEmpty()
     .withMessage("Price of Game cannot be empty. If its free, set price to 0.00"),
@@ -32,9 +32,9 @@ export const sendNewGameForm = [
             })
         }
 
-        const data = matchedData(request);
-        console.log(data);
-        await AddingNewGame(data.name, data.price, data.newCategoryChoice);
+        const { newName, newPrice, newCategoryChoice} = matchedData(request);
+        
+        await AddingNewGame(newName, newPrice, newCategoryChoice);
         response.redirect("/allGames");
     }   
 ]

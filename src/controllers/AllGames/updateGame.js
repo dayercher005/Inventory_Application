@@ -5,7 +5,11 @@ import { navbarElements } from '../navbar.js';
 export async function renderUpdatedGameForm(request, response){
     const GameCategories = await GettingCategories();
     const GameNames = await GettingAllGameNames();
-    
+
+    const gameID = request.params.gameID;
+    const game = await getIndividualGameDetails(Number(gameID));
+
+    response.locals.id = game[0].id
     response.locals.navbarElements = navbarElements;
     response.locals.AllGameNames = GameNames;
     response.locals.AvailableCategories = GameCategories;
@@ -14,11 +18,11 @@ export async function renderUpdatedGameForm(request, response){
 
 
 const validateUpdatedGame = [
-    body("name")
+    body("updatedName")
     .trim()
     .notEmpty()
     .withMessage("Name of Game cannot be empty"),
-    body("price")
+    body("updatedPrice")
     .trim()
     .notEmpty()
     .withMessage("Price of Game cannot be empty. If its free, set price to 0.00"),
@@ -30,9 +34,9 @@ export const sendUpdatedGameForm = [
     validateUpdatedGame, 
     async (request, response) => {
 
-
         const gameID = request.params.gameID;
         const game = await getIndividualGameDetails(Number(gameID));
+        response.locals.id = game[0].id
 
         const errors = validationResult(request);
 
@@ -42,9 +46,9 @@ export const sendUpdatedGameForm = [
             })
         }
 
-        const {updatedName, updatedPrice, updatedCategories} = matchedData(request);
+        const {updatedName, updatedPrice, updateCategoryChoice} = matchedData(request);
 
-        await UpdateGame(updatedName, updatedPrice, updatedCategories, game[0].id);
+        await UpdateGame(updatedName, updatedPrice, updateCategoryChoice, game[0].id);
         response.redirect("/allGames");
     }   
 
