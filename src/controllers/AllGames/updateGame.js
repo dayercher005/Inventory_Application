@@ -34,10 +34,6 @@ export const sendUpdatedGameForm = [
     validateUpdatedGame, 
     async (request, response) => {
 
-        const gameID = request.params.gameID;
-        const game = await getIndividualGameDetails(Number(gameID));
-        response.locals.id = game[0].id
-
         const errors = validationResult(request);
 
         if(!errors.isEmpty()){
@@ -48,7 +44,7 @@ export const sendUpdatedGameForm = [
 
         const {updatedName, updatedPrice, updateCategoryChoice} = matchedData(request);
 
-        await UpdateGame(updatedName, updatedPrice, updateCategoryChoice, game[0].id);
+        await UpdateGame(updatedName, updatedPrice, updateCategoryChoice, request.params.gameID);
         response.redirect("/allGames");
     }   
 
