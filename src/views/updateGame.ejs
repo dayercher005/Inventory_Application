@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Homepage</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body class="homepage">
     <%- include('partials/navbar', {navbarElements: navbarElements}) %>
@@ -15,7 +15,7 @@
           <div class="formGroupContainer">
             <label for="name" class="formLabel">Name of Game *</label>
             <select class="formInput">
-                <% GameNames.map(games => { %>
+                <% AllGameNames.map(games => { %>
                     <option><%= games.name %></option>
                 <% }); %>
             </select>

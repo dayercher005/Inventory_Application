@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="homepage">
+    <%- include('../partials/navbar', {navbarElements: navbarElements}) %>
+
+    <div>
+        <h1><%=name%></h1>
+        <h2 class="price"><%= price == 0.00 ? 'Free' : `$${price}` %></h2>
+        <h4>Description: </h4>
+        <div class="categories">Categories: <% categories.map(category => { %>
+            <span class="categoryStyling"><%= category %></span>
+        <% }); %></div>
+    </div>
+
+    <div class="buttonContainer">
+        <a href="/allGames/<%= id %>/updateGame" class="updateButton">Update</a>
+        <button class="removeButton">Remove</button>
+    </div>
+  </body>
+</html>
