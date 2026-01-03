@@ -6,19 +6,19 @@
   <body class="homepage">
     <%- include('../partials/navbar', {navbarElements: navbarElements}) %>
 
-    <div>
+    <div class="individualGameContent">
         <h1><%=name%></h1>
         <h2 class="price"><%= price == 0.00 ? 'Free' : `$${price}` %></h2>
-        <h4>Description: </h4>
-        <div class="categories">Categories: <% categories.map(category => { %>
+        <h3>Description: </h4>
+        <h3 class="categories">Categories: <% categories.map(category => { %>
             <span class="categoryStyling"><%= category %></span>
-        <% }); %></div>
+        <% }); %></h3>
     </div>
 
     <div class="buttonContainer">
         <a href="/allGames/<%= id %>/updateGame" class="updateButton">Update</a>
         <form action="/allGames/<%= id %>/" method="POST">
-            <button class="formSubmitButton" type="submit">Delete</button>
+            <button class="removeButton" type="submit">Delete</button>
         </form>
     </div>
   </body>
