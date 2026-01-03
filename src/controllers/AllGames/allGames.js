@@ -1,9 +1,10 @@
 import { GettingAllGames, GettingCategories, getIndividualGameDetails } from '../../db/Queries/queries.js';
-import { navbarElements } from '../navbar.js'
+import { navbarElements } from '../navbar.js';
 
 export async function renderAllGames(request, response){
     const GamesData = await GettingAllGames();
     const AvailableCategories = await GettingCategories();
+    response.locals.navbarElements = navbarElements;
     response.locals.gamesData = GamesData;
     response.locals.title = "All available games";
     response.locals.AvailableCategories = AvailableCategories;

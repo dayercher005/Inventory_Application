@@ -1,9 +1,11 @@
 import { body, validationResult, matchedData } from 'express-validator';
 import { AddingNewGame, GettingCategories } from '../../db/Queries/queries.js';
+import { navbarElements } from '../navbar.js';
 
 
 export async function renderNewGameForm(request, response) {
     const GameCategories = await GettingCategories();
+    response.locals.navbarElements = navbarElements;
     response.locals.AvailableCategories = GameCategories;
     response.render("NewGamePage/newGame");
 }
@@ -33,7 +35,7 @@ export const sendNewGameForm = [
         }
 
         const { newName, newPrice, newCategoryChoice} = matchedData(request);
-        
+
         await AddingNewGame(newName, newPrice, newCategoryChoice);
         response.redirect("/allGames");
     }   

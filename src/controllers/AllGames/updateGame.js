@@ -13,7 +13,7 @@ export async function renderUpdatedGameForm(request, response){
     response.locals.navbarElements = navbarElements;
     response.locals.AllGameNames = GameNames;
     response.locals.AvailableCategories = GameCategories;
-    response.render("updateGame");
+    response.render("AllGamesPage/updateGame");
 } 
 
 
@@ -37,7 +37,7 @@ export const sendUpdatedGameForm = [
         const errors = validationResult(request);
 
         if(!errors.isEmpty()){
-            return response.status(400).render("errors", {
+            return response.status(400).render("partials/errors", {
                 errors: errors.array()
             })
         }
