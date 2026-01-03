@@ -1,4 +1,4 @@
-## Project Directory Tree Structure
+## Project Structure
 
 ```bash
 .
@@ -14,29 +14,41 @@
 ├── README.md
 └── src
     ├── controllers
-    │   ├── allGames.js
+    │   ├── AllGames
+    │   │   ├── allGames.js
+    │   │   ├── deleteGame.js
+    │   │   └── updateGame.js
     │   ├── error.js
-    │   ├── index.js
+    │   ├── HomePage
+    │   │   └── index.js
     │   ├── navbar.js
-    │   ├── newGame.js
-    │   └── updateGame.js
+    │   └── NewGamesForm
+    │       └── newGame.js
     ├── db
     │   ├── pool.js
-    │   ├── queries.js
+    │   ├── Queries
+    │   │   └── queries.js
     │   └── seed.js
     ├── routes
-    │   ├── allGames.js
-    │   ├── index.js
-    │   ├── newGame.js
-    │   └── updateGame.js
+    │   ├── AllGames
+    │   │   └── allGames.js
+    │   ├── HomePage
+    │   │   └── index.js
+    │   └── NewGamesForm
+    │       └── newGame.js
     └── views
-        ├── allGames.ejs
-        ├── error.ejs
-        ├── homeButtons.ejs
-        ├── index.ejs
-        ├── navbar.ejs
-        ├── newGame.ejs
-        └── updateGame.ejs
+        ├── AllGamesPage
+        │   ├── allGames.ejs
+        │   ├── individualGame.ejs
+        │   └── updateGame.ejs
+        ├── HomePage
+        │   └── index.ejs
+        ├── NewGamePage
+        │   └── newGame.ejs
+        └── partials
+            ├── errors.ejs
+            ├── homeButtons.ejs
+            └── navbar.ejs
 ```
 
 ---
