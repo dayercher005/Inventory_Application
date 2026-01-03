@@ -250,21 +250,21 @@ span[class="categoryStyling"]{
 }
 
 div[class="buttonContainer"]{
-  
+  text-align: center;
 }
 
 a[class="updateButton"]{
-  display: block;
-  text-align: center;
+  display: inline-block;
   background-color: hsl(213, 100%, 67%);
   font-size: 1.13rem;
   border: none;
   border-radius: 5px;
   font-weight: 600;
   color: hsl(0, 10%, 88%);
-  max-width: 250px;
+  padding: 0.5rem;
+  margin: 0.2rem;
   transition: 0.2s transform;
-
+  min-width: 300px;
 }
 
 a[class="updateButton"]:hover{
@@ -273,16 +273,17 @@ a[class="updateButton"]:hover{
 }
 
 button[class="removeButton"]{
-  display: block;
+  display: inline-block;
   background-color: hsl(0, 95%, 59%);
   font-size: 1.13rem;
   border: none;
   border-radius: 5px;
   font-weight: 600;
   color: hsl(0, 10%, 88%);
-  max-width: 550px;
+  min-width: 320px;
   transition: 0.2s transform;
-
+  padding: 0.5rem;
+  margin: 0.2rem;
 }
 
 button[class="removeButton"]:hover{
@@ -290,6 +291,10 @@ button[class="removeButton"]:hover{
   background-color: hsl(0, 70%, 51%);
 }
 
+
+div[class="individualGameContent"]{
+  text-align: center;
+}
 
 
 /* CSS Styling for New Game Form Page */
