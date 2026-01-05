@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { indexRouter } from './src/routes/HomePage/index.js';
 import { allGamesRouter } from './src/routes/AllGames/allGames.js';
 import { newGameRouter } from './src/routes/NewGamesForm/newGame.js';
+import { categoriesRouter } from './src/routes/Categories/categories.js';
 import { renderErrorPage } from './src/controllers/error.js';
 
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/allGames", allGamesRouter);
 app.use("/newGame", newGameRouter);
+app.use("/categories", categoriesRouter);
 
 
 const PORT = 8080;
