@@ -429,4 +429,6 @@ div[class="categoriesSelectionContainer"]{
   align-items: center;
 }
  
-
+form[class="categoriesForm"]{
+  text-align: center;
+}
