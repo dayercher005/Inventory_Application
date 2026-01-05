@@ -78,8 +78,19 @@ export async function DeletingGameQuery(gameID){
         [gameID]);
 }
 
-
+// READS every game that contains the category in the categories array of the games table in the inventory database.
 export async function getGamesFromCategory(categoryName){
     const { rows } = await pool.query('SELECT name FROM games WHERE $1 = ANY(categories);', [categoryName]);
     return rows;
+}
+
+// DELETES category in the categories table of the inventory database.
+export async function DeletingCategory(categoryID){
+    await pool.query('DELETE FROM categories WHERE id = $1', 
+        [categoryID]);
+}
+
+//
+export async function DeletingCategoryFromGame(categoryName){
+    await pool.query('UPDATE games SET categories = ARRAY_REMOVE(categories, $1);', [categoryName]);
 }
