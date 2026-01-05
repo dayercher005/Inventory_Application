@@ -65,9 +65,21 @@ export async function getIndividualGameDetails(gameID){
     return rows;
 }
 
+// READS individual category details in the categories table in the inventory database.
+export async function getIndividualCategory(categoryID){
+    const { rows } = await pool.query('SELECT * FROM categories WHERE id = $1', [categoryID]);
+    return rows;
+}
+
 
 // DELETES game details in the game table of the inventory database.
 export async function DeletingGameQuery(gameID){
     await pool.query('DELETE FROM games WHERE id = $1;', 
         [gameID]);
+}
+
+
+export async function getGamesFromCategory(categoryName){
+    const { rows } = await pool.query('SELECT name FROM games WHERE $1 = ANY(categories);', [categoryName]);
+    return rows;
 }
