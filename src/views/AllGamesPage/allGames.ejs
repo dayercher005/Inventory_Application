@@ -8,16 +8,6 @@
 
     <h1 class="headerTitle"><%= title %></h1>
 
-    <div class="categoriesSelectionContainer">
-      <h1 class="sidebarHeader">All Existing Game Categories </h1>
-      <ul class="categoriesSelection">
-        <% AvailableCategories.map(categories => { %>
-          <li class="sidebarLink"> <%= categories.category %> 
-          <a><img class="crossImage" src="/images/cross.svg"></a></li>
-        <% }); %>
-      </ul>
-    </div>
-
     <div class="gamesGridContainer">
         <ul class="allGamesGrid">
             <% gamesData.map(game => { %>
