@@ -1,3 +1,7 @@
+## Live Preview
+
+Live Preview URL: https://inventory-application-1sbr.onrender.com/
+
 ## Project Structure
 
 ```bash
