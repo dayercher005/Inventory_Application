@@ -71,7 +71,7 @@ VALUES
 
 `;
 
-const ConnectionString = process.env.PRODUCTION_DATABASE;
+const ConnectionString = process.argv[2] === "LocalDatabase" ? process.env.DATABASE : process.env.PRODUCTION_DATABASE;
 
 async function DatabaseLoader(){
   console.log("Populating database via script");
