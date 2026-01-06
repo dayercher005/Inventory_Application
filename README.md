@@ -18,6 +18,9 @@
     │   │   ├── allGames.js
     │   │   ├── deleteGame.js
     │   │   └── updateGame.js
+    │   ├── Categories
+    │   │   ├── categories.js
+    │   │   └── individualCategory.js
     │   ├── error.js
     │   ├── HomePage
     │   │   └── index.js
@@ -32,6 +35,8 @@
     ├── routes
     │   ├── AllGames
     │   │   └── allGames.js
+    │   ├── Categories
+    │   │   └── categories.js
     │   ├── HomePage
     │   │   └── index.js
     │   └── NewGamesForm
@@ -41,6 +46,9 @@
         │   ├── allGames.ejs
         │   ├── individualGame.ejs
         │   └── updateGame.ejs
+        ├── Categories
+        │   ├── categories.ejs
+        │   └── individualCategory.ejs
         ├── HomePage
         │   └── index.ejs
         ├── NewGamePage
