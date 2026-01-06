@@ -7,8 +7,6 @@ import { newGameRouter } from './src/routes/NewGamesForm/newGame.js';
 import { categoriesRouter } from './src/routes/Categories/categories.js';
 import { renderErrorPage } from './src/controllers/error.js';
 
-
-
 export const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
